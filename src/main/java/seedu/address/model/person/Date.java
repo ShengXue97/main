@@ -1,35 +1,35 @@
 package seedu.address.model.person;
 
-import seedu.address.model.person.personTagValidations.DateValidator;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.model.person.personTagValidations.DateValidator;
+
 /**
- * Represents an Assignment's deadline in the address book. Guarantees: immutable; is valid as declared in
+ * Represents an Assignment's date in the address book. Guarantees: immutable; is valid as declared in
  */
 
 
-public class Deadline {
+public class Date {
 
     public final String value;
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Deadlines should be in the format YYYY-MM-DD, and it should not be blank";
+            "Dates should be in the format YYYY-MM-DD, and it should not be blank";
 
-    public static boolean isValidDeadline(String test) {
+    public static boolean isValidDate(String test) {
         return DateValidator.validateDate(test);
     }
 
     /**
-     * Constructs a {@code Deadline}.
+     * Constructs a {@code Date}.
      *
-     * @param deadline a valid deadline.
+     * @param date a valid date.
      */
-    public Deadline(String deadline) {
-        requireNonNull(deadline);
-        checkArgument(isValidDeadline(deadline), MESSAGE_CONSTRAINTS);
-        value = deadline;
+    public Date(String date) {
+        requireNonNull(date);
+        checkArgument(isValidDate(date), MESSAGE_CONSTRAINTS);
+        value = date;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class Deadline {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Deadline // instanceof handles nulls
-                && value.equals(((Deadline) other).value)); // state check
+                || (other instanceof Date // instanceof handles nulls
+                && value.equals(((Date) other).value)); // state check
     }
 
     @Override
