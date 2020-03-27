@@ -7,24 +7,35 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+<<<<<<< HEAD
 import javafx.collections.transformation.FilteredList;
 import seedu.address.model.modelStudent.Student;
+=======
+
+import seedu.address.model.modelGeneric.ModelObject;
+>>>>>>> 74d1a0f1335c84b8e209886663d9f3bbd4cd0691
 import seedu.address.model.person.Amount;
 import seedu.address.model.person.AssignedCourses;
 import seedu.address.model.person.AssignedStudents;
 import seedu.address.model.person.Courseid;
 import seedu.address.model.person.ID;
 import seedu.address.model.person.Name;
+<<<<<<< HEAD
 import seedu.address.model.person.Studentid;
+=======
+import seedu.address.model.person.exceptions.CourseNotFoundException;
+import seedu.address.model.person.exceptions.DuplicateCourseException;
+>>>>>>> 74d1a0f1335c84b8e209886663d9f3bbd4cd0691
 import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Course in the address book. Guarantees: details are present and not null, field
  * values are validated, immutable.
  */
-public class Course {
+public class Course extends ModelObject {
 
   // Identity fields
+  private final String ENTITY_NAME = "Course";
   private final Name name;
   private final ID id;
   // TODO: Remove dummy teacher_id
@@ -123,14 +134,18 @@ public class Course {
    * Returns true if both courses of the same name have at least one other identity field that is
    * the same. This defines a weaker notion of equality between two courses.
    */
-  public boolean isSameCourse(Course otherCourse) {
+  public boolean weakEquals(ModelObject otherCourse) {
     if (otherCourse == this) {
       return true;
     }
 
-    return otherCourse != null
+    if (otherCourse instanceof Course == false) {
+      return false;
+    }
+    Course otherCourseCast = (Course) otherCourse;
+    return otherCourseCast != null
 //        && otherCourse.getName().equals(getName())
-        && otherCourse.getId().equals(getId());
+            && otherCourseCast.getId().equals(getId());
   }
 
   /**

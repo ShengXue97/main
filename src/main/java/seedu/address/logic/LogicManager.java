@@ -33,14 +33,10 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.modelAssignment.Assignment;
-import seedu.address.model.modelAssignment.ReadOnlyAssignmentAddressBook;
 import seedu.address.model.modelCourse.Course;
-import seedu.address.model.modelCourse.ReadOnlyCourseAddressBook;
 import seedu.address.model.modelFinance.Finance;
-import seedu.address.model.modelFinance.ReadOnlyFinanceAddressBook;
-import seedu.address.model.modelStudent.ReadOnlyStudentAddressBook;
+import seedu.address.model.modelGeneric.ReadOnlyAddressBookGeneric;
 import seedu.address.model.modelStudent.Student;
-import seedu.address.model.modelTeacher.ReadOnlyTeacherAddressBook;
 import seedu.address.model.modelTeacher.Teacher;
 import seedu.address.model.person.Person;
 import seedu.address.storage.Storage;
@@ -147,7 +143,7 @@ public class LogicManager implements Logic {
 
   ///
   @Override
-  public ReadOnlyTeacherAddressBook getTeacherAddressBook() {
+  public ReadOnlyAddressBookGeneric<Teacher> getTeacherAddressBook() {
     return model.getTeacherAddressBook();
   }
 
@@ -163,7 +159,7 @@ public class LogicManager implements Logic {
 
   ///
   @Override
-  public ReadOnlyStudentAddressBook getStudentAddressBook() {
+  public ReadOnlyAddressBookGeneric<Student> getStudentAddressBook() {
     return model.getStudentAddressBook();
   }
 
@@ -180,7 +176,7 @@ public class LogicManager implements Logic {
 
   ///
   @Override
-  public ReadOnlyCourseAddressBook getCourseAddressBook() {
+  public ReadOnlyAddressBookGeneric<Course> getCourseAddressBook() {
     return model.getCourseAddressBook();
   }
 
@@ -196,7 +192,7 @@ public class LogicManager implements Logic {
 
   ///
   @Override
-  public ReadOnlyFinanceAddressBook getFinanceAddressBook() {
+  public ReadOnlyAddressBookGeneric<Finance> getFinanceAddressBook() {
     return model.getFinanceAddressBook();
   }
 
@@ -211,7 +207,7 @@ public class LogicManager implements Logic {
   }
 
   @Override
-  public ReadOnlyAssignmentAddressBook getAssignmentAddressBook() {
+  public ReadOnlyAddressBookGeneric<Assignment> getAssignmentAddressBook() {
     return model.getAssignmentAddressBook();
   }
 

@@ -1,4 +1,4 @@
-package seedu.address.model.modelStudent;
+package seedu.address.model.modelCourseStudent;
 
 import static java.util.Objects.requireNonNull;
 
@@ -11,21 +11,22 @@ import seedu.address.model.modelGeneric.ReadOnlyAddressBookGeneric;
  * Wraps all data at the address-book level Duplicates are not allowed (by .isSamePerson
  * comparison)
  */
-public class StudentAddressBook extends AddressBookGeneric<Student> {
-  public StudentAddressBook() {
-    super();
+public class CourseStudentAddressBook extends AddressBookGeneric<CourseStudent> {
+
+  public CourseStudentAddressBook() {
+     super();
   }
 
   /**
    * Creates an AddressBook using the Persons in the {@code toBeCopied}
    */
-  public StudentAddressBook(ReadOnlyAddressBookGeneric<Student> toBeCopied) {
+  public CourseStudentAddressBook(ReadOnlyAddressBookGeneric<CourseStudent> toBeCopied) {
     super(toBeCopied);
   }
 
   @Override
   public String toString() {
-    return objects.asUnmodifiableObservableList().size() + " teachers";
+    return objects.asUnmodifiableObservableList().size() + " courseStudents";
     // TODO: refine later
   }
 }
